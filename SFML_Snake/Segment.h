@@ -15,6 +15,7 @@ public:
 	{
 		return shape.getPosition();
 	}
+
 	void MoveBy(sf::Vector2f vel)
 	{
 		vel.x *= Dimensions;

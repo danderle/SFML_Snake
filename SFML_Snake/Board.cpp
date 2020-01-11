@@ -31,6 +31,11 @@ const int Board::NumOfRows() const
 	return rows;
 }
 
+const sf::Vector2f Board::GetPosition()
+{
+	return border.getPosition();
+}
+
 ////Private Methods
 void Board::SetupBoarder(const sf::Vector2f position)
 {

@@ -15,7 +15,7 @@ public:
 	void SetVelocity(const sf::Vector2f vel);
 	void Grow(const sf::Vector2i pos);
 	void SetToGrow(const bool grw);
-
+	const std::vector<Segment>& GetBody(); 
 private:
 	std::vector<Segment> body;
 	sf::Vector2f velocity;

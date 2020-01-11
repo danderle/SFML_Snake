@@ -38,6 +38,11 @@ void Snake::SetToGrow(const bool grw)
 	grow = grw;
 }
 
+const std::vector<Segment>& Snake::GetBody()
+{
+	return body;
+}
+
 void Snake::Move(const float dt)
 {
 	dtPassed += dt;

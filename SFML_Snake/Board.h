@@ -11,6 +11,8 @@ public:
 	void DrawCell(const sf::Vector2i poisition, const sf::Color c);
 	const int NumOfColumns() const;
 	const int NumOfRows() const;
+	const sf::Vector2f GetPosition();
+
 private:
 	void SetupBoarder(const sf::Vector2f position);
 
