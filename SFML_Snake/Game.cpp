@@ -36,6 +36,7 @@ void Game::UpdateModel()
     {
         fruit.PlaceFruit(snake);
         snake.SetToGrow(true);
+        snake.IncreaseFruitEaten();
     }
 }
 
@@ -73,6 +74,7 @@ void Game::GetKeyInput()
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
     {
         snake.SetToGrow(true);
+        snake.IncreaseFruitEaten();
     }
     if (vel.x != 0 || vel.y != 0)
     {

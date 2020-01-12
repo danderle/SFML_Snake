@@ -15,18 +15,23 @@ public:
 	void SetVelocity(const sf::Vector2f vel);
 	void Grow(const sf::Vector2i pos);
 	void SetToGrow(const bool grw);
-	const std::vector<Segment>& GetBody(); 
+	const std::vector<Segment>& GetBody();
+	void IncreaseFruitEaten();
+
 private:
 	std::vector<Segment> body;
 	sf::Vector2f velocity;
 	std::vector<sf::Color> bodyShades;
 	int shadeIndex = 0;
-	float dtPassed = 0;
 	bool grow = false;
-
+	float speed = 80;
+	float lastDistance = 0;
+	int numberOfFruitEaten = 0;
+	
+	static constexpr float moveThreashold = 20;
+	static constexpr int speedIncreaseThreashold = 20;
 	const sf::Color lightGreen = sf::Color(50, 205, 50);
 	const sf::Color mediumGreen = sf::Color(34, 139, 34);
 	const sf::Color darkGreen = sf::Color(85, 107, 47);
-	static constexpr float moveDt = 0.2f;
 };
 

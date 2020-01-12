@@ -43,10 +43,16 @@ const std::vector<Segment>& Snake::GetBody()
 	return body;
 }
 
+void Snake::IncreaseFruitEaten()
+{
+	numberOfFruitEaten++;
+	speed += numberOfFruitEaten % speedIncreaseThreashold == 0 ? 1 : 0;
+}
+
 void Snake::Move(const float dt)
 {
-	dtPassed += dt;
-	if (dtPassed > moveDt)
+	lastDistance += dt * speed;
+	if (lastDistance > moveThreashold)
 	{
 		int length = body.size()-1;
 		auto tailPos = body[length].GetPosition();
@@ -61,6 +67,6 @@ void Snake::Move(const float dt)
 			Grow((sf::Vector2i)tailPos);
 			grow = false;
 		}
-		dtPassed = 0;
+		lastDistance = 0;
 	}
 }
