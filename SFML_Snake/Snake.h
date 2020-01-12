@@ -20,10 +20,11 @@ public:
 	bool IsDead() const;
 	sf::Vector2f GetPosition() const;
 	void CheckSelfCollision();
+	void GetKeyboardInput(sf::Keyboard& kbd);
 
 private:
 	std::vector<Segment> body;
-	sf::Vector2f velocity;
+	sf::Vector2f currentVelocity;
 	std::vector<sf::Color> bodyShades;
 	int shadeIndex = 0;
 	bool grow = false;

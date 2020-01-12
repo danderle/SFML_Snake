@@ -30,11 +30,11 @@ void Game::UpdateModel()
 {
     if (!snake.IsDead())
     {
-        GetKeyInput();
         auto dt = clock.restart().asSeconds();
-        snake.Move(dt);
+        snake.GetKeyboardInput(kbd);
         snake.CheckSelfCollision();
         board.CheckCollision(snake.GetPosition());
+        snake.Move(dt);
         fruit.Pulse(dt);
         if (fruit.IsEaten(snake))
         {
@@ -51,39 +51,3 @@ void Game::DrawFrame()
     snake.Draw(window);
     fruit.Draw(window);
 }
-
-
-void Game::GetKeyInput()
-{
-    sf::Vector2f vel(0, 0);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-    {
-        vel.x = -1;
-    }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-    {
-        vel.x = 1;
-    }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-    {
-        vel.y = -1;
-    }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
-        vel.y = 1;
-    }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
-        vel.y = 1;
-    }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
-    {
-        snake.SetToGrow(true);
-        snake.IncreaseFruitEaten();
-    }
-    if (vel.x != 0 || vel.y != 0)
-    {
-        snake.SetVelocity(vel);
-    }
-}
-

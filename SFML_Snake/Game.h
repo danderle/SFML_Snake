@@ -21,6 +21,7 @@ private:
     Board board;
     Snake snake;
     Fruit fruit;
+    sf::Keyboard kbd;
     sf::Clock clock;
 
     static constexpr int wndPaddingX = 100;
