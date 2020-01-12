@@ -13,10 +13,11 @@ Snake::Snake(sf::Vector2i pos)
 
 void Snake::Draw(sf::RenderWindow& wnd)
 {
-	for (auto segment : body)
+	int length = body.size() - 1;
+	for (; length >= 0; length--)
 	{
-		auto shape = segment.GetShape();
-		wnd.draw(shape);
+		auto segment = body[length].GetShape();
+		wnd.draw(segment);
 	}
 }
 
@@ -49,9 +50,27 @@ void Snake::IncreaseFruitEaten()
 	speed += numberOfFruitEaten % speedIncreaseThreashold == 0 ? 1 : 0;
 }
 
+bool Snake::IsDead() const
+{
+	return isDead;
+}
+
 sf::Vector2f Snake::GetPosition() const
 {
 	return body[0].GetPosition();
+}
+
+void Snake::CheckSelfCollision()
+{
+	auto headPos = body[0].GetPosition();
+	for (int seg = 1; seg < body.size(); seg++)
+	{
+		auto segPos = body[seg].GetPosition();
+		if (headPos.x == segPos.x && headPos.y == segPos.y)
+		{
+			isDead = true;
+		}
+	}
 }
 
 void Snake::Move(const float dt)

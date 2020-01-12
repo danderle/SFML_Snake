@@ -28,12 +28,13 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-    if (!gameOver)
+    if (!snake.IsDead())
     {
         GetKeyInput();
         auto dt = clock.restart().asSeconds();
         snake.Move(dt);
-        gameOver = board.CheckCollision(snake.GetPosition());
+        snake.CheckSelfCollision();
+        board.CheckCollision(snake.GetPosition());
         fruit.Pulse(dt);
         if (fruit.IsEaten(snake))
         {
