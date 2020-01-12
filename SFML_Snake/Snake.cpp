@@ -55,6 +55,11 @@ bool Snake::IsDead() const
 	return isDead;
 }
 
+void Snake::Collision(const bool collision)
+{
+	isDead = collision;
+}
+
 sf::Vector2f Snake::GetPosition() const
 {
 	return body[0].GetPosition();

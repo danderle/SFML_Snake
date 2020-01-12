@@ -18,6 +18,7 @@ public:
 	const std::vector<Segment>& GetBody();
 	void IncreaseFruitEaten();
 	bool IsDead() const;
+	void Collision(const bool collision);
 	sf::Vector2f GetPosition() const;
 	void CheckSelfCollision();
 	void GetKeyboardInput(sf::Keyboard& kbd);

@@ -33,7 +33,7 @@ void Game::UpdateModel()
         auto dt = clock.restart().asSeconds();
         snake.GetKeyboardInput(kbd);
         snake.CheckSelfCollision();
-        board.CheckCollision(snake.GetPosition());
+        board.CheckCollision(snake);
         snake.Move(dt);
         fruit.Pulse(dt);
         if (fruit.IsEaten(snake))

@@ -42,12 +42,14 @@ sf::Vector2f Board::GetBottomRightPosition()
 	return bottomRightPosition;
 }
 
-bool Board::CheckCollision(sf::Vector2f pos)
+void Board::CheckCollision(Snake& snake)
 {
+	auto pos = snake.GetPosition();
 	auto brdPos = GetTopLeftPosition();
 	sf::Vector2f maxPos(pos.x + Segment::Dimensions, pos.y + Segment::Dimensions );
-	return pos.x < brdPos.x || maxPos.x > bottomRightPosition.x ||
+	bool collision = pos.x < brdPos.x || maxPos.x > bottomRightPosition.x ||
 		pos.y < brdPos.y || maxPos.y > bottomRightPosition.y;
+	snake.Collision(collision);
 }
 
 ////Private Methods

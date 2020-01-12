@@ -1,6 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
-#include "Segment.h"
+#include "Snake.h"
 
 class Board
 {
@@ -13,7 +13,7 @@ public:
 	const int NumOfRows() const;
 	sf::Vector2f GetTopLeftPosition();
 	sf::Vector2f GetBottomRightPosition();
-	bool CheckCollision(sf::Vector2f gridPos);
+	void CheckCollision(Snake& snake);
 
 private:
 	void SetupBoarder(const sf::Vector2f position);
