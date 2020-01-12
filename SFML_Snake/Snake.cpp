@@ -49,6 +49,12 @@ void Snake::IncreaseFruitEaten()
 	speed += numberOfFruitEaten % speedIncreaseThreashold == 0 ? 1 : 0;
 }
 
+sf::Vector2f Snake::GetPosition() const
+{
+
+	return body[0].;
+}
+
 void Snake::Move(const float dt)
 {
 	lastDistance += dt * speed;

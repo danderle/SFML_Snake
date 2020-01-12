@@ -36,6 +36,12 @@ const sf::Vector2f Board::GetPosition()
 	return border.getPosition();
 }
 
+bool Board::CheckCollision(sf::Vector2i gridPos) const
+{
+	return gridPos.x < 0 || gridPos.x >= columns ||
+		gridPos.y < 0 || gridPos.y >= rows;
+}
+
 ////Private Methods
 void Board::SetupBoarder(const sf::Vector2f position)
 {

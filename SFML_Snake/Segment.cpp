@@ -14,3 +14,20 @@ sf::RectangleShape Segment::GetShape() const
 {
 	return shape;
 }
+
+void Segment::SetPosition(const sf::Vector2f pos)
+{
+	shape.setPosition(pos);
+}
+
+const sf::Vector2f Segment::GetPosition()
+{
+	return shape.getPosition();
+}
+
+void Segment::MoveBy(sf::Vector2f vel)
+{
+	vel.x *= Dimensions;
+	vel.y *= Dimensions;
+	shape.move(vel);
+}

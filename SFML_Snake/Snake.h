@@ -17,6 +17,7 @@ public:
 	void SetToGrow(const bool grw);
 	const std::vector<Segment>& GetBody();
 	void IncreaseFruitEaten();
+	sf::Vector2f GetPosition() const;
 
 private:
 	std::vector<Segment> body;

@@ -31,6 +31,7 @@ void Game::UpdateModel()
     GetKeyInput();
     auto dt = clock.restart().asSeconds();
     snake.Move(dt);
+    board.CheckCollision(snake);
     fruit.Pulse(dt);
     if (fruit.IsEaten(snake))
     {

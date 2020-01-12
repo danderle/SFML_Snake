@@ -12,6 +12,7 @@ public:
 	const int NumOfColumns() const;
 	const int NumOfRows() const;
 	const sf::Vector2f GetPosition();
+	bool CheckCollision(sf::Vector2i gridPos) const;
 
 private:
 	void SetupBoarder(const sf::Vector2f position);
