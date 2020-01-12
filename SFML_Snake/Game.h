@@ -22,7 +22,7 @@ private:
     Snake snake;
     Fruit fruit;
     sf::Clock clock;
-
+    bool gameOver = false;
 
     static constexpr int wndPaddingX = 100;
     static constexpr int wndPaddingY = 50;

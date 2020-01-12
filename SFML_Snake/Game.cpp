@@ -5,7 +5,7 @@ Game::Game(const int width, const int height, const std::string& title)
     window(sf::VideoMode(width, height), title),
     board({ wndPaddingX, wndPaddingY } , width - (2*wndPaddingX), height - (2*wndPaddingY) ),
     snake({ width/2, height/2}),
-    fruit(board.NumOfColumns(), board.NumOfRows(), board.GetPosition(), snake)
+    fruit(board.NumOfColumns(), board.NumOfRows(), board.GetTopLeftPosition(), snake)
 {}
 
 void Game::Go()
@@ -28,16 +28,19 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-    GetKeyInput();
-    auto dt = clock.restart().asSeconds();
-    snake.Move(dt);
-    board.CheckCollision(snake);
-    fruit.Pulse(dt);
-    if (fruit.IsEaten(snake))
+    if (!gameOver)
     {
-        fruit.PlaceFruit(snake);
-        snake.SetToGrow(true);
-        snake.IncreaseFruitEaten();
+        GetKeyInput();
+        auto dt = clock.restart().asSeconds();
+        snake.Move(dt);
+        gameOver = board.CheckCollision(snake.GetPosition());
+        fruit.Pulse(dt);
+        if (fruit.IsEaten(snake))
+        {
+            fruit.PlaceFruit(snake);
+            snake.SetToGrow(true);
+            snake.IncreaseFruitEaten();
+        }
     }
 }
 

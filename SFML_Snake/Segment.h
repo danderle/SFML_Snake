@@ -8,7 +8,7 @@ public:
 		
 	sf::RectangleShape GetShape() const;
 	void SetPosition(const sf::Vector2f pos);
-	const sf::Vector2f GetPosition();
+	sf::Vector2f GetPosition() const;
 	void MoveBy(sf::Vector2f vel);
 	
 public:

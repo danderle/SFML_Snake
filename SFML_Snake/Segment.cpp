@@ -20,7 +20,7 @@ void Segment::SetPosition(const sf::Vector2f pos)
 	shape.setPosition(pos);
 }
 
-const sf::Vector2f Segment::GetPosition()
+sf::Vector2f Segment::GetPosition() const
 {
 	return shape.getPosition();
 }

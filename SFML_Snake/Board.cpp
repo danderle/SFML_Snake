@@ -4,6 +4,7 @@
 Board::Board(sf::Vector2f position, const int brdWidth, const int brdHeight)
 	:
 	border({ (float)brdWidth , (float)brdHeight }),
+	bottomRightPosition({position.x + (float)brdWidth, position.y + (float)brdHeight}),
 	columns(brdWidth / Segment::Dimensions),
 	rows(brdHeight / Segment::Dimensions)
 {
@@ -31,15 +32,22 @@ const int Board::NumOfRows() const
 	return rows;
 }
 
-const sf::Vector2f Board::GetPosition()
+sf::Vector2f Board::GetTopLeftPosition()
 {
 	return border.getPosition();
 }
 
-bool Board::CheckCollision(sf::Vector2i gridPos) const
+sf::Vector2f Board::GetBottomRightPosition()
 {
-	return gridPos.x < 0 || gridPos.x >= columns ||
-		gridPos.y < 0 || gridPos.y >= rows;
+	return bottomRightPosition;
+}
+
+bool Board::CheckCollision(sf::Vector2f pos)
+{
+	auto brdPos = GetTopLeftPosition();
+	sf::Vector2f maxPos(pos.x + Segment::Dimensions, pos.y + Segment::Dimensions );
+	return pos.x < brdPos.x || maxPos.x > bottomRightPosition.x ||
+		pos.y < brdPos.y || maxPos.y > bottomRightPosition.y;
 }
 
 ////Private Methods

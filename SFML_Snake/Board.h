@@ -11,14 +11,16 @@ public:
 	void DrawCell(const sf::Vector2i poisition, const sf::Color c);
 	const int NumOfColumns() const;
 	const int NumOfRows() const;
-	const sf::Vector2f GetPosition();
-	bool CheckCollision(sf::Vector2i gridPos) const;
+	sf::Vector2f GetTopLeftPosition();
+	sf::Vector2f GetBottomRightPosition();
+	bool CheckCollision(sf::Vector2f gridPos);
 
 private:
 	void SetupBoarder(const sf::Vector2f position);
 
 private:
 	sf::RectangleShape border;
+	sf::Vector2f bottomRightPosition;
 	int columns;
 	int rows;
 

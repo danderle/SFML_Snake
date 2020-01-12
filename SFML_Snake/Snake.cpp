@@ -51,8 +51,7 @@ void Snake::IncreaseFruitEaten()
 
 sf::Vector2f Snake::GetPosition() const
 {
-
-	return body[0].;
+	return body[0].GetPosition();
 }
 
 void Snake::Move(const float dt)
