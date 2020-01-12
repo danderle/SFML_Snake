@@ -11,6 +11,8 @@ public:
     void PlaceFruit(Snake& snake);
     void Draw(sf::RenderWindow& wnd);
     bool IsEaten(Snake& snake);
+    void Pulse(const float dt);
+
 private:
     std::random_device rnd;
     std::mt19937 rng;
@@ -20,5 +22,9 @@ private:
     sf::RectangleShape frt;
     sf::Vector2f brdPos;
     sf::Vector2i frtGridPos;
+    int pulser = 1;
+    float lastPulse = 0;
+    static constexpr int maxWhite = 200;
+    static constexpr float pulseTime = 0.01f;
 };
 

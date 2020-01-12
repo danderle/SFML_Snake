@@ -9,7 +9,7 @@ Fruit::Fruit(const int columns, const int rows, sf::Vector2f brdPos, Snake& snak
     brdPos(brdPos)
 {
 	PlaceFruit(snake);
-	frt.setFillColor({ 255,0,0 });
+	frt.setFillColor({ maxWhite,maxWhite,maxWhite });
 }
 
 void Fruit::PlaceFruit(Snake& snake)
@@ -55,4 +55,23 @@ bool Fruit::IsEaten(Snake& snake)
         }
     }
     return false;
+}
+
+void Fruit::Pulse(const float dt)
+{
+    lastPulse += dt;
+    if (lastPulse > pulseTime)
+    {
+        auto curColor = frt.getFillColor();
+        if (curColor.r >= maxWhite || curColor.r <= 0 ||
+            curColor.g >= maxWhite || curColor.g <= 0)
+        {
+            pulser *= -1;
+        }
+        curColor.r += pulser;
+        curColor.g += (pulser * 5);
+        curColor.b += (pulser * 5);
+        frt.setFillColor(curColor);
+        lastPulse = 0;
+    }
 }

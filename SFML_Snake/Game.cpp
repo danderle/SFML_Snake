@@ -31,9 +31,11 @@ void Game::UpdateModel()
     GetKeyInput();
     auto dt = clock.restart().asSeconds();
     snake.Move(dt);
+    fruit.Pulse(dt);
     if (fruit.IsEaten(snake))
     {
         fruit.PlaceFruit(snake);
+        snake.SetToGrow(true);
     }
 }
 
