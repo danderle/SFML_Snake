@@ -10,6 +10,8 @@ Game::Game(const int width, const int height, const std::string& title)
 
 void Game::Go()
 {
+    sound.PlayTitle();
+    sound.PlayMusic();
     while (window.isOpen())
     {
         sf::Event event;
@@ -40,8 +42,10 @@ void Game::UpdateModel()
         {
             fruit.PlaceFruit(snake);
             snake.SetToGrow(true);
-            snake.IncreaseFruitEaten();
+            if (snake.IncreaseFruitEaten())
+                sound.PlayEat();
             score.Update(snake.GetFruitEaten());
+            sound.PlayFart();
         }
     }
 }

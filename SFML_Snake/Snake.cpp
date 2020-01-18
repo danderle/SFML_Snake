@@ -44,10 +44,12 @@ const std::vector<Segment>& Snake::GetBody()
 	return body;
 }
 
-void Snake::IncreaseFruitEaten()
+bool Snake::IncreaseFruitEaten()
 {
 	numberOfFruitEaten++;
-	speed += numberOfFruitEaten % speedIncreaseThreashold == 0 ? 1 : 0;
+	bool increase = numberOfFruitEaten % speedIncreaseThreashold == 0 ? true : false;
+	speed += increase ? 1 : 0;
+	return increase;
 }
 
 bool Snake::IsDead() const

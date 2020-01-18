@@ -16,7 +16,7 @@ public:
 	void Grow(const sf::Vector2i pos);
 	void SetToGrow(const bool grw);
 	const std::vector<Segment>& GetBody();
-	void IncreaseFruitEaten();
+	bool IncreaseFruitEaten();
 	bool IsDead() const;
 	void Collision(const bool collision);
 	sf::Vector2f GetPosition() const;
@@ -36,7 +36,7 @@ private:
 	bool isDead = false;
 
 	static constexpr float moveThreashold = 20;
-	static constexpr int speedIncreaseThreashold = 20;
+	static constexpr int speedIncreaseThreashold = 10;
 	const sf::Color lightGreen = sf::Color(50, 205, 50);
 	const sf::Color mediumGreen = sf::Color(34, 139, 34);
 	const sf::Color darkGreen = sf::Color(85, 107, 47);

@@ -5,6 +5,7 @@
 #include "Snake.h"
 #include "Fruit.h"
 #include "Score.h"
+#include "Sound.h"
 
 class Game
 {
@@ -22,6 +23,7 @@ private:
     Snake snake;
     Fruit fruit;
     Score score;
+    Sound sound;
     sf::Keyboard kbd;
     sf::Clock clock;
 
