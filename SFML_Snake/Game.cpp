@@ -50,4 +50,5 @@ void Game::DrawFrame()
     board.Draw(window);
     snake.Draw(window);
     fruit.Draw(window);
+    score.Draw(window);
 }

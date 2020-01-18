@@ -4,6 +4,7 @@
 #include "Board.h"
 #include "Snake.h"
 #include "Fruit.h"
+#include "Score.h"
 
 class Game
 {
@@ -14,13 +15,13 @@ public:
     void Go();
     void UpdateModel();
     void DrawFrame();
-    void GetKeyInput();
 
 private:
     sf::RenderWindow window;
     Board board;
     Snake snake;
     Fruit fruit;
+    Score score;
     sf::Keyboard kbd;
     sf::Clock clock;
 

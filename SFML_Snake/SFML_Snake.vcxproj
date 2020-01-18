@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Fruit.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -154,9 +155,13 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Fruit.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Snake.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resources\LemonMilk.otf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
