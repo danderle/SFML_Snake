@@ -10,8 +10,10 @@ public:
 	
 	void DrawScore(sf::RenderWindow& wnd);
 	void DrawPressToPlay(sf::RenderWindow& wnd);
+	void DrawPressToRestart(sf::RenderWindow& wnd);
 	void UpdateScore(const int fruitEaten);
 	void SetPressToPlay(const sf::Vector2f posn, const float width, const float height);
+	void SetPressToRestart(const sf::Vector2f posn, const float width, const float height);
 
 private:
 	void Initialize();
@@ -22,7 +24,7 @@ private:
 	sf::Text score;
 	sf::Text currentPoint;
 	sf::Text pressToPlay;
-	sf::Text gameOver;
+	sf::Text pressToRestart;
 
 	static constexpr int startingScore = 0;
 	static constexpr float xStartPosition = 10;

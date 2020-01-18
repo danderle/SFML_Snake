@@ -23,11 +23,17 @@ public:
 	void CheckSelfCollision();
 	void GetKeyboardInput(sf::Keyboard& kbd);
 	int GetFruitEaten() const;
+	void Restart();
 
 private:
+	void MakeHead();
+
+private:
+	sf::Vector2i startPos;
 	std::vector<Segment> body;
 	sf::Vector2f currentVelocity;
 	std::vector<sf::Color> bodyShades;
+	
 	int shadeIndex = 0;
 	bool grow = false;
 	float speed = 80;

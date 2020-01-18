@@ -17,10 +17,12 @@ public:
     void UpdateModel();
     void DrawFrame();
     void CheckForStart();
+    void CheckForReStart();
 
 private:
     sf::RenderWindow window;
-    sf::RectangleShape start;
+    sf::RectangleShape startShape;
+    sf::RectangleShape gameOverShape;
     Board board;
     Snake snake;
     Fruit fruit;

@@ -2,10 +2,10 @@
 
 Snake::Snake(sf::Vector2i pos)
 	:
-	currentVelocity(0,1)
+	startPos(pos),
+	currentVelocity(0,0)
 {
-	Segment head(pos, sf::Color::Yellow);
-	body.push_back(head);
+	MakeHead();
 	bodyShades.emplace_back(lightGreen);
 	bodyShades.emplace_back(mediumGreen);
 	bodyShades.emplace_back(darkGreen);
@@ -129,6 +129,24 @@ void Snake::GetKeyboardInput(sf::Keyboard& kbd)
 int Snake::GetFruitEaten() const
 {
 	return numberOfFruitEaten;
+}
+
+void Snake::Restart()
+{
+	shadeIndex = 0;
+	grow = false;
+	speed = 80;
+	lastDistance = 0;
+	numberOfFruitEaten = 0;
+	isDead = false;
+	body.clear();
+	MakeHead();
+}
+
+void Snake::MakeHead()
+{
+	Segment head(startPos, sf::Color::Yellow);
+	body.push_back(head);
 }
 
 void Snake::Move(const float dt)

@@ -4,8 +4,11 @@ Text::Text()
 	:
 	score({"Score: ", font }),
 	currentPoint({std::to_string(startingScore), font }),
-	pressToPlay({ "Press arrow\n keys to play", font }),
-	gameOver({ "Game Over", font })
+	pressToPlay({ "Press arrow\n"
+				  "keys to play", font }),
+	pressToRestart({ "  Game Over\n"
+					 "Press enter to\n"
+					 " restart game", font })
 {
 	Initialize();
 }
@@ -21,6 +24,11 @@ void Text::DrawPressToPlay(sf::RenderWindow& wnd)
 	wnd.draw(pressToPlay);
 }
 
+void Text::DrawPressToRestart(sf::RenderWindow& wnd)
+{
+	wnd.draw(pressToRestart);
+}
+
 void Text::UpdateScore(const int fruitEaten)
 {
 	currentPoint.setString(std::to_string(fruitEaten));
@@ -32,6 +40,14 @@ void Text::SetPressToPlay(const sf::Vector2f pos, const float width, const float
 	auto xPos = centerPos.x - pressToPlay.getGlobalBounds().width / 2;
 	auto yPos = centerPos.y - pressToPlay.getGlobalBounds().height / 2;
 	pressToPlay.setPosition({xPos, yPos - 9});
+}
+
+void Text::SetPressToRestart(const sf::Vector2f pos, const float width, const float height)
+{
+	sf::Vector2f centerPos(pos.x + width / 2, pos.y + height / 2);
+	auto xPos = centerPos.x - pressToRestart.getGlobalBounds().width / 2;
+	auto yPos = centerPos.y - pressToRestart.getGlobalBounds().height / 2;
+	pressToRestart.setPosition({ xPos, yPos - 9 });
 }
 
 
