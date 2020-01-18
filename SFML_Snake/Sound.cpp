@@ -39,3 +39,11 @@ void Sound::PlayTitle()
 {
 	title.play();
 }
+
+void Sound::StopMusic()
+{
+	if (music.getStatus() == sf::Sound::Status::Playing)
+	{
+		music.stop();
+	}
+}

@@ -10,6 +10,7 @@ public:
 	void PlayFart();
 	void PlayMusic();
 	void PlayTitle();
+	void StopMusic();
 
 private:
 	sf::SoundBuffer titleBuf;

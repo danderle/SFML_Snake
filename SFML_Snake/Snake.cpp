@@ -76,6 +76,7 @@ void Snake::CheckSelfCollision()
 		if (headPos.x == segPos.x && headPos.y == segPos.y)
 		{
 			isDead = true;
+			break;
 		}
 	}
 }

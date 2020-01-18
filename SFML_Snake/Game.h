@@ -4,7 +4,7 @@
 #include "Board.h"
 #include "Snake.h"
 #include "Fruit.h"
-#include "Score.h"
+#include "Text.h"
 #include "Sound.h"
 
 class Game
@@ -16,17 +16,21 @@ public:
     void Go();
     void UpdateModel();
     void DrawFrame();
+    void CheckForStart();
 
 private:
     sf::RenderWindow window;
+    sf::RectangleShape start;
     Board board;
     Snake snake;
     Fruit fruit;
-    Score score;
+    Text text;
     Sound sound;
+
     sf::Keyboard kbd;
     sf::Clock clock;
-
+    bool gameOver = true;
+    
     static constexpr int wndPaddingX = 100;
     static constexpr int wndPaddingY = 100;
 };
