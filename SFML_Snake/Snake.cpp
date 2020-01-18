@@ -123,6 +123,11 @@ void Snake::GetKeyboardInput(sf::Keyboard& kbd)
 	}
 }
 
+int Snake::GetFruitEaten() const
+{
+	return numberOfFruitEaten;
+}
+
 void Snake::Move(const float dt)
 {
 	lastDistance += dt * speed;

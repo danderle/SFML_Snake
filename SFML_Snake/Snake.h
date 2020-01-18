@@ -22,6 +22,7 @@ public:
 	sf::Vector2f GetPosition() const;
 	void CheckSelfCollision();
 	void GetKeyboardInput(sf::Keyboard& kbd);
+	int GetFruitEaten() const;
 
 private:
 	std::vector<Segment> body;

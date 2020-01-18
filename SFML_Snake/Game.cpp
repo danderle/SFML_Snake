@@ -41,6 +41,7 @@ void Game::UpdateModel()
             fruit.PlaceFruit(snake);
             snake.SetToGrow(true);
             snake.IncreaseFruitEaten();
+            score.Update(snake.GetFruitEaten());
         }
     }
 }

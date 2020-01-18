@@ -64,5 +64,6 @@
     <Font Include="Resources\LemonMilk.otf">
       <Filter>Resources</Filter>
     </Font>
+    <Font Include="Resources\Roboto-Bold.ttf" />
   </ItemGroup>
 </Project>
