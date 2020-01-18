@@ -14,6 +14,8 @@ public:
 	sf::Vector2f GetTopLeftPosition();
 	sf::Vector2f GetBottomRightPosition();
 	void CheckCollision(Snake& snake);
+	float GetWidth() const;
+	float GetHeight() const;
 
 private:
 	void SetupBoarder(const sf::Vector2f position);

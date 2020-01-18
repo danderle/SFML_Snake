@@ -4,7 +4,7 @@ Game::Game(const int width, const int height, const std::string& title)
     :
     window(sf::VideoMode(width, height), title),
     board({ wndPaddingX, wndPaddingY } , width - (2*wndPaddingX), height - (2*wndPaddingY) ),
-    snake({ width/2, height/2}),
+    snake({ wndPaddingX + (board.NumOfColumns() / 2 * Segment::Dimensions), wndPaddingY + (board.NumOfRows() / 2 * Segment::Dimensions)}),
     fruit(board.NumOfColumns(), board.NumOfRows(), board.GetTopLeftPosition(), snake)
 {}
 

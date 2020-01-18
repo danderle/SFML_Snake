@@ -52,6 +52,16 @@ void Board::CheckCollision(Snake& snake)
 	snake.Collision(collision);
 }
 
+float Board::GetWidth() const
+{
+	return border.getLocalBounds().width;
+}
+
+float Board::GetHeight() const
+{
+	return border.getLocalBounds().height;
+}
+
 ////Private Methods
 void Board::SetupBoarder(const sf::Vector2f position)
 {

@@ -26,6 +26,6 @@ private:
     sf::Clock clock;
 
     static constexpr int wndPaddingX = 100;
-    static constexpr int wndPaddingY = 50;
+    static constexpr int wndPaddingY = 100;
 };
 
